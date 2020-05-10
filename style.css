@@ -16,6 +16,19 @@ body {
   margin: 0 auto;
 }
 
+footer{
+  position: absolute;
+  bottom: 0;
+}
+
+.buttonsBottom{
+  position: absolute;
+  bottom: 3%;
+}
+
+.mxw-100vw{
+  max-width: 100vw;
+}
 
 div {
   border: 1px solid red;
@@ -39,6 +52,10 @@ div {
 
 .justify-content-between{
   justify-content: space-between;
+}
+
+.justify-content-flex-end{
+  justify-content: flex-end;
 }
 
 button{
