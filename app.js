@@ -523,9 +523,9 @@ function foodUpgradeTemplate() {
   let oreCost = oreCostCalculator(user.mods.food)
   let woodCost = woodCostCalculator(user.mods.food)
   let elem = document.getElementById("foodUpgradeTemplate")
-  elem.innerHTML = `<button id="foodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('food',${cost}, ${oreCost}, ${woodCost})"> <div> <img src="${upgradeArr[upgradeCounter.click.food]}arrow.png" alt="error loading image" class="userResourceImage"> Upgrade to ${upgradeArr[upgradeCounter.click.food]} Arrows. </div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
+  elem.innerHTML = `<button id="foodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('food',${cost}, ${oreCost}, ${woodCost})"> <div> <img src="${upgradeArr[upgradeCounter.click.food]}Arrow.png" alt="error loading image" class="userResourceImage"> Upgrade to ${upgradeArr[upgradeCounter.click.food]} Arrows. </div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
   if (upgradeCounter.click.food >= upgradeArr.length) {
-    elem.innerHTML = `<button id="foodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('food',${cost}, ${oreCost}, ${woodCost})"><div> <img src="diamondarrow.png" alt="error loading image" class="userResourceImage">Upgrade Diamond Arrows +${maxFood}</div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
+    elem.innerHTML = `<button id="foodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('food',${cost}, ${oreCost}, ${woodCost})"><div> <img src="DiamondArrow.png" alt="error loading image" class="userResourceImage">Upgrade Diamond Arrows +${maxFood}</div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
   }
 }
 
@@ -534,9 +534,9 @@ function oreUpgradeTemplate() {
   let oreCost = oreCostCalculator(user.mods.ore)
   let woodCost = woodCostCalculator(user.mods.ore)
   let elem = document.getElementById("oreUpgradeTemplate")
-  elem.innerHTML = `<button id="oreUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('ore',${cost}, ${oreCost}, ${woodCost})"> <img src="${upgradeArr[upgradeCounter.click.ore]}pick.png" alt="error loading image" class="userResourceImage"> Upgrade to ${upgradeArr[upgradeCounter.click.ore]} Pick. </div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</button>`
+  elem.innerHTML = `<button id="oreUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('ore',${cost}, ${oreCost}, ${woodCost})"> <img src="${upgradeArr[upgradeCounter.click.ore]}Pick.png" alt="error loading image" class="userResourceImage"> Upgrade to ${upgradeArr[upgradeCounter.click.ore]} Pick. </div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</button>`
   if (upgradeCounter.click.ore >= upgradeArr.length) {
-    elem.innerHTML = `<button id="oreUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('ore',${cost}, ${oreCost}, ${woodCost})"><div> <img src="Diamondpick.png" alt="error loading image" class="userResourceImage">Upgrade Diamond Pick +${maxOre}</div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
+    elem.innerHTML = `<button id="oreUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('ore',${cost}, ${oreCost}, ${woodCost})"><div> <img src="DiamondPick.png" alt="error loading image" class="userResourceImage">Upgrade Diamond Pick +${maxOre}</div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
   }
 }
 
@@ -545,9 +545,9 @@ function woodUpgradeTemplate() {
   let oreCost = oreCostCalculator(user.mods.wood)
   let woodCost = woodCostCalculator(user.mods.wood)
   let elem = document.getElementById("woodUpgradeTemplate")
-  elem.innerHTML = `<button id="woodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('wood',${cost}, ${oreCost}, ${woodCost})"> <img src="${upgradeArr[upgradeCounter.click.wood]}axe.png" alt="error loading image" class="userResourceImage"> Upgrade to ${upgradeArr[upgradeCounter.click.wood]} Axe. </div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</button>`
+  elem.innerHTML = `<button id="woodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('wood',${cost}, ${oreCost}, ${woodCost})"> <img src="${upgradeArr[upgradeCounter.click.wood]}Axe.png" alt="error loading image" class="userResourceImage"> Upgrade to ${upgradeArr[upgradeCounter.click.wood]} Axe. </div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</button>`
   if (upgradeCounter.click.wood >= upgradeArr.length) {
-    elem.innerHTML = `<button id="woodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('wood',${cost}, ${oreCost}, ${woodCost})"><div> <img src="Diamondaxe.png" alt="error loading image" class="userResourceImage">Upgrade Diamond Axe +${maxWood}</div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
+    elem.innerHTML = `<button id="woodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('wood',${cost}, ${oreCost}, ${woodCost})"><div> <img src="DiamondAxe.png" alt="error loading image" class="userResourceImage">Upgrade Diamond Axe +${maxWood}</div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
   }
 }
 
