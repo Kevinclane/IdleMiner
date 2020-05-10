@@ -26,7 +26,7 @@
   <main class="container-fluid">
     <div class="row">
       <div class="col-7">
-        <div id="userResources" class="row p-2 text-white">
+        <div id="userResources" class="row p-2 text-white text-shadow-black">
           <div class="col">
             <img src="Gold.png" alt="error loading image" class="userResourceImage">
             <span id="userGold"></span>
@@ -38,7 +38,7 @@
             <span id="userWood"></span>
           </div>
         </div>
-        <div class="row p-2 text-white">
+        <div class="row p-2 text-white text-shadow-black">
           <div class="col">
             <img src="Food.png" alt="error loading image" class="userResourceImage">
             <span id="foodPerClick"></span>
@@ -48,7 +48,7 @@
             <span id="woodPerClick"></span>
           </div>
         </div>
-        <div id="userIdle" class="row p-2 text-white">
+        <div id="userIdle" class="row p-2 text-white text-shadow-black">
           <div class="col">
             <img src="Gold.png" alt="error loading image" class="userResourceImage">
             <span id="gps"></span>
@@ -60,7 +60,7 @@
             <span id="wps"></span>
           </div>
         </div>
-        <div class="row p-2 text-white">
+        <div class="row p-2 text-white text-shadow-black">
           <div class="col">
             <span id="workers"></span>
             <img src="Gold.png" alt="error loading image" class="userResourceImage">
@@ -71,7 +71,7 @@
         </div>
       </div>
       <div class="col-5">
-        <div id="collect" class="row p-2">
+        <div id="collect" class="row p-2 text-shadow-black">
           <div class="col d-flex justify-content-evenly">
             <button class="btn btn-primary text-shadow-black" onclick="collect('food')"><img src="Food.png"
                 alt="error loading image" class="userResourceImage">Food</button>
@@ -89,35 +89,43 @@
     <div id="upgradesHiresSells" class="row d-flex justify-content-between buttonsBottom mxw-100vw">
       <div id="upgrades" class="col-3 d-flex flex-column justify-content-flex-end">
 
-        <div id="foodUpgradeTemplate" class="p-2">
+        <div id="foodUpgradeTemplate" class="p-2 text-shadow-black">
 
         </div>
 
-        <div id="oreUpgradeTemplate" class="p-2">
+        <div id="oreUpgradeTemplate" class="p-2 text-shadow-black">
 
         </div>
 
-        <div id="woodUpgradeTemplate" class="p-2">
+        <div id="woodUpgradeTemplate" class="p-2 text-shadow-black">
 
         </div>
       </div>
       <div id="sellButtons" class="col-4 d-flex flex-column justify-content-flex-end">
         <span class="text-center">
-          <h3 class="text-white"><img src="Sell.png" alt="error loading image" class="userResourceImage">Market
+          <h3 class="text-white text-shadow-black"><img src="Sell.png" alt="error loading image"
+              class="userResourceImage">Market
             Place<img src="Sell.png" alt="error loading image" class="userResourceImage"></h3>
         </span>
         <div>
           <div id="sellFood">
-            <div class="text-center text-white">Sell Food 5g ea.</div>
+            <div class="text-center text-white text-shadow-black">Sell Food 5g ea.</div>
             <div class="d-flex justify-content-evenly flex-wrap">
-              <button class="btn btn-primary" onclick="sellResources('food',1)" id="sellFood1">x1</button>
-              <button class="btn btn-primary" onclick="sellResources('food',5)" id="sellFood5">x5</button>
-              <button class="btn btn-primary" onclick="sellResources('food',10)" id="sellFood10">x10</button>
-              <button class="btn btn-primary" onclick="sellResources('food',50)" id="sellFood50">x50</button>
-              <button class="btn btn-primary" onclick="sellResources('food',100)" id="sellFood100">x100</button>
-              <button class="btn btn-primary" onclick="sellResources('food',1000)" id="sellFood1000">x1000</button>
-              <button class="btn btn-primary" onclick="sellResources('food',10000)" id="sellFood10000">x10000</button>
-              <button class="btn btn-primary" onclick="sellResources('food',100000)"
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('food',1)"
+                id="sellFood1">x1</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('food',5)"
+                id="sellFood5">x5</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('food',10)"
+                id="sellFood10">x10</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('food',50)"
+                id="sellFood50">x50</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('food',100)"
+                id="sellFood100">x100</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('food',1000)"
+                id="sellFood1000">x1000</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('food',10000)"
+                id="sellFood10000">x10000</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('food',100000)"
                 id="sellFood100000">x100000</button>
               <button class="btn btn-primary" onclick="sellResources('food',1000000)"
                 id="sellFood1000000">x1000000</button>
@@ -125,34 +133,49 @@
           </div>
 
           <div id="sellOre">
-            <div class="text-center text-white">Sell Ore 5g ea.</div>
+            <div class="text-center text-white text-shadow-black">Sell Ore 5g ea.</div>
             <div class="d-flex justify-content-evenly flex-wrap">
-              <button class="btn btn-primary" onclick="sellResources('ore',1)" id="sellOre1">x1</button>
-              <button class="btn btn-primary" onclick="sellResources('ore',5)" id="sellOre5">x5</button>
-              <button class="btn btn-primary" onclick="sellResources('ore',10)" id="sellOre10">x10</button>
-              <button class="btn btn-primary" onclick="sellResources('ore',50)" id="sellOre50">x50</button>
-              <button class="btn btn-primary" onclick="sellResources('ore',100)" id="sellOre100">x100</button>
-              <button class="btn btn-primary" onclick="sellResources('ore',1000)" id="sellOre1000">x1000</button>
-              <button class="btn btn-primary" onclick="sellResources('ore',10000)" id="sellOre10000">x10000</button>
-              <button class="btn btn-primary" onclick="sellResources('ore',100000)" id="sellOre100000">x100000</button>
-              <button class="btn btn-primary" onclick="sellResources('ore',1000000)"
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('ore',1)"
+                id="sellOre1">x1</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('ore',5)"
+                id="sellOre5">x5</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('ore',10)"
+                id="sellOre10">x10</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('ore',50)"
+                id="sellOre50">x50</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('ore',100)"
+                id="sellOre100">x100</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('ore',1000)"
+                id="sellOre1000">x1000</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('ore',10000)"
+                id="sellOre10000">x10000</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('ore',100000)"
+                id="sellOre100000">x100000</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('ore',1000000)"
                 id="sellOre1000000">x1000000</button>
             </div>
           </div>
 
           <div id="sellWood">
-            <div class="text-center text-white">Sell Wood 5g ea.</div>
+            <div class="text-center text-white text-shadow-black">Sell Wood 5g ea.</div>
             <div class="d-flex justify-content-evenly flex-wrap">
-              <button class="btn btn-primary" onclick="sellResources('wood',1)" id="sellWood1">x1</button>
-              <button class="btn btn-primary" onclick="sellResources('wood',5)" id="sellWood5">x5</button>
-              <button class="btn btn-primary" onclick="sellResources('wood',10)" id="sellWood10">x10</button>
-              <button class="btn btn-primary" onclick="sellResources('wood',50)" id="sellWood50">x50</button>
-              <button class="btn btn-primary" onclick="sellResources('wood',100)" id="sellWood100">x100</button>
-              <button class="btn btn-primary" onclick="sellResources('wood',1000)" id="sellWood1000">x1000</button>
-              <button class="btn btn-primary" onclick="sellResources('wood',10000)" id="sellWood10000">x10000</button>
-              <button class="btn btn-primary" onclick="sellResources('wood',100000)"
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('wood',1)"
+                id="sellWood1">x1</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('wood',5)"
+                id="sellWood5">x5</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('wood',10)"
+                id="sellWood10">x10</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('wood',50)"
+                id="sellWood50">x50</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('wood',100)"
+                id="sellWood100">x100</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('wood',1000)"
+                id="sellWood1000">x1000</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('wood',10000)"
+                id="sellWood10000">x10000</button>
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('wood',100000)"
                 id="sellWood100000">x100000</button>
-              <button class="btn btn-primary" onclick="sellResources('wood',1000000)"
+              <button class="btn btn-primary text-shadow-black" onclick="sellResources('wood',1000000)"
                 id="sellWood1000000">x1000000</button>
             </div>
           </div>
@@ -167,18 +190,18 @@
           workers, they will leave!</p>
         <div class="row">
           <div class="col-12 p-2 d-flex justify-content-evenly">
-            <span id="traderHireTemplate" class="">
+            <span id="traderHireTemplate" class="text-shadow-black">
             </span>
 
-            <span id="hunterHireTemplate" class="">
+            <span id="hunterHireTemplate" class="text-shadow-black">
             </span>
           </div>
           <div class="col-12 p-2 d-flex justify-content-evenly">
 
-            <span id="minerHireTemplate" class="">
+            <span id="minerHireTemplate" class="text-shadow-black">
             </span>
 
-            <span id="lumberjackHireTemplate" class="">
+            <span id="lumberjackHireTemplate" class="text-shadow-black">
             </span>
           </div>
         </div>
