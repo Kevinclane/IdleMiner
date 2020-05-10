@@ -1,8 +1,8 @@
 let user = {
-  gold: 10000000,
-  food: 10000000,
-  ore: 10000000,
-  wood: 10000000,
+  gold: 0,
+  food: 0,
+  ore: 0,
+  wood: 0,
   mods: {
     food: 0,
     ore: 0,
@@ -34,7 +34,7 @@ let idle = {
 
 
 
-let upgradeArr = ["Stone", "Bronze", "Iron", "Steel", "Diamond"]
+let upgradeArr = ['Stone', 'Bronze', 'Iron', 'Steel', 'Diamond']
 
 //Loads info onto the page
 function draw() {
@@ -43,6 +43,8 @@ function draw() {
 }
 
 function drawUserInfo() {
+  let goldMod = idle.gold * 5
+
   document.getElementById("userGold").innerText = "Gold: " + user.gold.toString()
 
   document.getElementById("userFood").innerText = "Food: " + user.food.toString()
@@ -51,7 +53,7 @@ function drawUserInfo() {
 
   document.getElementById("userWood").innerText = "Wood: " + user.wood.toString()
 
-  document.getElementById("gps").innerText = "Gold per second: " + idle.gold.toString()
+  document.getElementById("gps").innerText = "Gold per second: " + goldMod.toString()
 
   document.getElementById("fps").innerText = "Food per second: " + idle.food.toString()
 
@@ -347,7 +349,7 @@ function upgrade(resource, num) {
 
 //Handles increasing resources per second
 function idleCollection() {
-  user.gold += idle.gold
+  user.gold += idle.gold * 5
   user.food += idle.food
   user.ore += idle.ore
   user.wood += idle.wood
@@ -417,52 +419,52 @@ function costCaculator(num) {
 function foodUpgradeTemplate() {
   let cost = costCaculator(user.mods.food)
   let elem = document.getElementById("foodUpgradeTemplate")
-  elem.innerHTML = `<button id="foodUpgrade" class="btn btn-primary" onclick="upgrade('food',${cost})">Upgrade to ${upgradeArr[upgradeCounter.click.food]} Spear.   Cost: ${cost} Gold</button>`
+  elem.innerHTML = `<button id="foodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('food',${cost})"> <img src="${upgradeArr[upgradeCounter.click.food]}arrow.png" alt="error loading image" class="userResourceImage"> Upgrade to ${upgradeArr[upgradeCounter.click.food]} Arrows.   Cost: ${cost} Gold</button>`
   if (upgradeCounter.click.food == upgradeArr.length) {
-    elem.innerHTML = `<button id="foodUpgrade" class="btn btn-primary" onclick="upgrade('food',${cost}) disabled">MAX</button>`
+    elem.innerHTML = `<button id="foodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('food',${cost}) disabled">MAX</button>`
   }
 }
 
 function oreUpgradeTemplate() {
   let cost = costCaculator(user.mods.ore)
   let elem = document.getElementById("oreUpgradeTemplate")
-  elem.innerHTML = `<button id="oreUpgrade" class="btn btn-primary" onclick="upgrade('ore',${cost})">Upgrade to ${upgradeArr[upgradeCounter.click.ore]} Pick.   Cost: ${cost} Gold</button>`
+  elem.innerHTML = `<button id="oreUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('ore',${cost})"> <img src="${upgradeArr[upgradeCounter.click.ore]}pick.png" alt="error loading image" class="userResourceImage"> Upgrade to ${upgradeArr[upgradeCounter.click.ore]} Pick.   Cost: ${cost} Gold</button>`
   if (upgradeCounter.click.ore == upgradeArr.length) {
-    elem.innerHTML = `<button id="oreUpgrade" class="btn btn-primary" onclick="upgrade('food',${cost}) disabled">MAX</button>`
+    elem.innerHTML = `<button id="oreUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('food',${cost}) disabled">MAX</button>`
   }
 }
 
 function woodUpgradeTemplate() {
   let cost = costCaculator(user.mods.wood)
   let elem = document.getElementById("woodUpgradeTemplate")
-  elem.innerHTML = `<button id="woodUpgrade" class="btn btn-primary" onclick="upgrade('wood',${cost})">Upgrade to ${upgradeArr[upgradeCounter.click.wood]} Axe.   Cost: ${cost} Gold</button>`
+  elem.innerHTML = `<button id="woodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('wood',${cost})"> <img src="${upgradeArr[upgradeCounter.click.wood]}axe.png" alt="error loading image" class="userResourceImage"> Upgrade to ${upgradeArr[upgradeCounter.click.wood]} Axe.   Cost: ${cost} Gold</button>`
   if (upgradeCounter.click.wood == upgradeArr.length) {
-    elem.innerHTML = `<button id="woodUpgrade" class="btn btn-primary" onclick="upgrade('food',${cost}) disabled">MAX</button>`
+    elem.innerHTML = `<button id="woodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('food',${cost}) disabled">MAX</button>`
   }
 }
 
 function traderHireTemplate() {
   let elem = document.getElementById("traderHireTemplate")
   let cost = costCaculator(idle.gold)
-  elem.innerHTML = `<button class="btn btn-primary" onclick="hire('gold', ${cost})" id="trader">Hire a trader. Cost: ${cost}</button>`
+  elem.innerHTML = `<button class="btn btn-primary text-shadow-black" onclick="hire('gold', ${cost})" id="trader"> <img src="trader.png" alt="error loading image" class="userResourceImage"> <div> Hire a trader</div><div> Cost: ${cost}</div></button>`
 }
 
 function hunterHireTemplate() {
   let elem = document.getElementById("hunterHireTemplate")
   let cost = costCaculator(idle.food)
-  elem.innerHTML = `<button class="btn btn-primary" onclick="hire('food', ${cost})" id="hunter">Hire a hunter. Cost: ${cost}</button>`
+  elem.innerHTML = `<button class="btn btn-primary text-shadow-black" onclick="hire('food', ${cost})" id="hunter"> <img src="hunter.png" alt="error loading image" class="userResourceImage"> <div> Hire a hunter</div><div> Cost: ${cost}</div></button>`
 }
 
 function minerHireTemplate() {
   let elem = document.getElementById("minerHireTemplate")
   let cost = costCaculator(idle.ore)
-  elem.innerHTML = `<button class="btn btn-primary" onclick="hire('ore', ${cost})" id="miner">Hire a miner. Cost: ${cost}</button>`
+  elem.innerHTML = `<button class="btn btn-primary text-shadow-black" onclick="hire('ore', ${cost})" id="miner"> <img src="miner.png" alt="error loading image" class="userResourceImage"> <div>Hire a miner</div><div> Cost: ${cost}</div></button>`
 }
 
 function lumberjackHireTemplate() {
   let elem = document.getElementById("lumberjackHireTemplate")
   let cost = costCaculator(idle.wood)
-  elem.innerHTML = `<button class="btn btn-primary" onclick="hire('wood', ${cost})" id="lumberjack">Hire a lumberjack. Cost: ${cost}</button>`
+  elem.innerHTML = `<button class="btn btn-primary text-shadow-black" onclick="hire('wood', ${cost})" id="lumberjack"> <img src="lumberjack.png" alt="error loading image" class="userResourceImage"><div> Hire a lumberjack</div><div> Cost: ${cost}</div></button>`
 }
 
 //#endregion

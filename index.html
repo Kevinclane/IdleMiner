@@ -6,33 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="slate.css">
+  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>Town Miner</title>
 </head>
 
 <body>
-  <header class="container-fluid">
-    <div id="userResources" class="row">
-      <div class="col">
-        <span id="userGold"></span>
-        <span id="userFood"></span>
-        <span id="userOre"></span>
-        <span id="userWood"></span>
-      </div>
-    </div>
+  <header class="container-fluid text-shadow-black">
     <div class="row">
       <div class="col">
-        <span id="foodPerClick"></span>
-        <span id="orePerClick"></span>
-        <span id="woodPerClick"></span>
-      </div>
-    </div>
-    <div id="userIdle" class="row">
-      <div class="col">
-        <span id="gps"></span>
-        <span id="fps"></span>
-        <span id="ops"></span>
-        <span id="wps"></span>
+        <h3 class="text-center bg-primary text-white">Town Miner</h3>
       </div>
     </div>
   </header>
@@ -40,51 +24,116 @@
 
 
   <main class="container-fluid">
+    <div class="row">
+      <div class="col-7">
+        <div id="userResources" class="row p-2 text-white">
+          <div class="col">
+            <img src="gold.png" alt="error loading image" class="userResourceImage">
+            <span id="userGold"></span>
+            <img src="food.png" alt="error loading image" class="userResourceImage">
+            <span id="userFood"></span>
+            <img src="ore.png" alt="error loading image" class="userResourceImage">
+            <span id="userOre"></span>
+            <img src="wood.png" alt="error loading image" class="userResourceImage">
+            <span id="userWood"></span>
+          </div>
+        </div>
+        <div class="row p-2 text-white">
+          <div class="col">
+            <img src="food.png" alt="error loading image" class="userResourceImage">
+            <span id="foodPerClick"></span>
+            <img src="ore.png" alt="error loading image" class="userResourceImage">
+            <span id="orePerClick"></span>
+            <img src="wood.png" alt="error loading image" class="userResourceImage">
+            <span id="woodPerClick"></span>
+          </div>
+        </div>
+        <div id="userIdle" class="row p-2 text-white">
+          <div class="col">
+            <img src="gold.png" alt="error loading image" class="userResourceImage">
+            <span id="gps"></span>
+            <img src="food.png" alt="error loading image" class="userResourceImage">
+            <span id="fps"></span>
+            <img src="ore.png" alt="error loading image" class="userResourceImage">
+            <span id="ops"></span>
+            <img src="wood.png" alt="error loading image" class="userResourceImage">
+            <span id="wps"></span>
+          </div>
+        </div>
+        <div class="row p-2 text-white">
+          <div class="col">
+            <span id="workers">Total workers: # Upkeep Costs: <img src="food.png" alt="error loading image"
+                class="userResourceImage">:# <img src="gold.png" alt="error loading image"
+                class="userResourceImage">:#</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-5">
+        <div id="collect" class="row p-2">
+          <div class="col d-flex justify-content-evenly">
+            <button class="btn btn-primary text-shadow-black" onclick="collect('food')"><img src="food.png"
+                alt="error loading image" class="userResourceImage">Food</button>
 
-    <div id="collect" class="row">
-      <div class="col">
-        <button class="btn btn-primary" onclick="collect('food')">Food</button>
+            <button class="btn btn-primary text-shadow-black" onclick="collect('ore')"><img src="ore.png"
+                alt="error loading image" class="userResourceImage">Ore</button>
 
-        <button class="btn btn-primary" onclick="collect('ore')">Ore</button>
-
-        <button class="btn btn-primary" onclick="collect('wood')">Wood</button>
+            <button class="btn btn-primary text-shadow-black" onclick="collect('wood')"><img src="wood.png"
+                alt="error loading image" class="userResourceImage">Wood</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div id="upgradesHiresSells" class="row">
-      <div id="upgrades" class="col">
+    <div id="upgradesHiresSells" class="row d-flex justify-content-between">
+      <div id="upgrades" class="col-3">
 
-        <div id="foodUpgradeTemplate">
-
-        </div>
-
-        <div id="oreUpgradeTemplate">
+        <div id="foodUpgradeTemplate" class="p-2">
 
         </div>
 
-        <div id="woodUpgradeTemplate">
-
-        </div>
-      </div>
-
-      <div id="hires" class="col">
-        <div id="traderHireTemplate">
+        <div id="oreUpgradeTemplate" class="p-2">
 
         </div>
 
-        <div id="hunterHireTemplate">
-
-        </div>
-
-        <div id="minerHireTemplate">
-
-        </div>
-
-        <div id="lumberjackHireTemplate">
+        <div id="woodUpgradeTemplate" class="p-2">
 
         </div>
       </div>
+
+      <div id="hires" class="col-3">
+        <p class="bannerBG text-shadow-black text-white p-2">Hiring workers requires an upkeep of 10 food and 20 gold
+          per 30
+          seconds.
+          If you can't
+          feed or pay your
+          workers, they will leave!</p>
+        <div class="row">
+          <div class="col-12 p-2">
+            <span id="traderHireTemplate" class="">
+            </span>
+
+            <span id="hunterHireTemplate" class="">
+            </span>
+          </div>
+          <div class="col-12 p-2">
+
+            <span id="minerHireTemplate" class="">
+            </span>
+
+            <span id="lumberjackHireTemplate" class="">
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
       <div id="foodSellButtons" class="col">
+        <span>
+          <h3>Market Place</h3>
+        </span>
+        <span>
+          <img src="sell.png" alt="error loading image" class="userResourceImage">
+        </span>
         <div id="sellFood">
           <span>Sell Food 5g ea.</span>
           <button class="btn btn-primary" onclick="sellResources('food',1)" id="sellFood1">x1</button>
@@ -132,5 +181,6 @@
   <footer></footer>
 
   <script src="app.js"></script>
+</body>
 
 </html>

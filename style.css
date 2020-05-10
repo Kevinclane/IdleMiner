@@ -1,3 +1,51 @@
 main{
   flex-grow:1
 }
+
+.userResourceImage{
+  max-height: 5vh;
+}
+
+body { 
+  background: url(background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Gloria Hallelujah', cursive;
+  margin: 0 auto;
+}
+
+
+div {
+  border: 1px solid red;
+}
+
+.text-shadow-black{
+  text-shadow: 2px 2px 2px black;
+}
+
+.text-black{
+  color: black;
+}
+
+.text-white{
+  -webkit-text-fill-color: white;
+}
+
+.justify-content-evenly{
+  justify-content: space-evenly;
+}
+
+.justify-content-between{
+  justify-content: space-between;
+}
+
+button{
+  text-shadow: 2px 2px 2px black;
+}
+
+.bannerBG{
+  color: #aaa;
+  border-color: rgba(0,0,0,0.6)
+}
