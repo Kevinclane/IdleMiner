@@ -30,9 +30,9 @@ footer{
   max-width: 100vw;
 }
 
-div {
+/* div {
   border: 1px solid red;
-}
+} */
 
 .text-shadow-black{
   text-shadow: 2px 2px 2px black;
