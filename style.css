@@ -1,3 +1,15 @@
+@media screen and (max-width: 768px){
+  #upgradesHiresSells {position: relative; bottom: auto;}
+  #footer {bottom: auto;}
+}
+
+
+
+
+
+
+
+
 main{
   flex-grow:1
 }
@@ -54,7 +66,14 @@ img{
   -webkit-text-fill-color: white;
 }
 
-.justify-content-evenly{
+.bg-secondary-trans{
+  background-color: rgb(122, 130, 136, .7);
+  border-radius: 5px;
+  border: 2px solid rgba(0,0,0,0.6);
+  box-shadow: 1px 1px black;
+}
+
+.justify-content-space-around{
   justify-content: space-evenly;
 }
 
@@ -66,11 +85,11 @@ img{
   justify-content: flex-end;
 }
 
+.align-center{
+  align-items: center;
+}
+
 button{
   text-shadow: 2px 2px 2px black;
 }
 
-.bannerBG{
-  color: #aaa;
-  border-color: rgba(0,0,0,0.6)
-}

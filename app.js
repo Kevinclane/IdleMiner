@@ -71,13 +71,13 @@ function drawUserInfo() {
 
   document.getElementById("wps").innerText = "Wood per second: " + idle.wood.toString()
 
-  document.getElementById("foodPerClick").innerText = "Food Per Click: " + (user.mods.food + 1)
+  document.getElementById("foodPerClick").innerText = "Food per click: " + (user.mods.food + 1)
 
-  document.getElementById("orePerClick").innerText = "Ore Per Click: " + (user.mods.ore + 1)
+  document.getElementById("orePerClick").innerText = "Ore per click: " + (user.mods.ore + 1)
 
-  document.getElementById("woodPerClick").innerText = "Wood Per Click: " + (user.mods.wood + 1)
+  document.getElementById("woodPerClick").innerText = "Wood per click: " + (user.mods.wood + 1)
 
-  document.getElementById("workers").innerText = "Total Workers: " + totalWorkers + " Upkeep Costs:"
+  document.getElementById("workers").innerText = "Total Workers: " + totalWorkers
 
   document.getElementById("workerFood").innerText = (totalWorkers * 10).toString()
 
@@ -575,7 +575,7 @@ function minerHireTemplate() {
 function lumberjackHireTemplate() {
   let elem = document.getElementById("lumberjackHireTemplate")
   let cost = goldCostCalculator(idle.wood)
-  elem.innerHTML = `<button class="btn btn-primary text-shadow-black" onclick="hire('wood', ${cost})" id="lumberjack"> <img src="Lumberjack.png" alt="error loading image" class="userResourceImage"><div> Hire a lumberjack</div><div> Cost: ${cost} Gold</div></button>`
+  elem.innerHTML = `<button class="btn btn-primary text-shadow-black" onclick="hire('wood', ${cost})" id="lumberjack"> <img src="Lumberjack.png" alt="error loading image" class="userResourceImage"><div> Hire a logger</div><div> Cost: ${cost} Gold</div></button>`
 }
 
 //#endregion
@@ -584,5 +584,5 @@ function lumberjackHireTemplate() {
 
 
 
-window.setInterval(idleCollection, 1000)
+// window.setInterval(idleCollection, 1000)
 draw()
