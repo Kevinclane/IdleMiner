@@ -1,8 +1,8 @@
 let user = {
-  gold: 100000,
-  food: 100000,
-  ore: 100000,
-  wood: 100000,
+  gold: 0,
+  food: 0,
+  ore: 0,
+  wood: 0,
   mods: {
     food: 0,
     ore: 0,
