@@ -1,8 +1,8 @@
 let user = {
-  gold: 0,
-  food: 0,
-  ore: 0,
-  wood: 0,
+  gold: 100000,
+  food: 100000,
+  ore: 100000,
+  wood: 100000,
   mods: {
     food: 0,
     ore: 0,
@@ -40,9 +40,9 @@ let maxWood = 0
 
 
 let upgradeArr = ['Stone', 'Bronze', 'Iron', 'Steel', 'Diamond']
-let upgradeArrArrow = ['StoneArrow', 'ArrowBronze', 'IronArrow', 'SteelArrow', 'ArrowDiamond']
-let upgradeArrPick = ['StonePick', 'PickBronze', 'IronPick', 'SteelPick', 'PickDiamond']
-let upgradeArrAxe = ['StoneAxe', 'AxeBronze', 'IronAxe', 'SteelAxe', 'AxeDiamond']
+let upgradeArrArrow = ['StoneArrow', 'BronzeArrow', 'IronArrow', 'SteelArrow', 'DiamondArrow']
+let upgradeArrPick = ['StonePick', 'BronzePick', 'IronPick', 'SteelPick', 'DiamondPick']
+let upgradeArrAxe = ['StoneAxe', 'BronzeAxe', 'IronAxe', 'SteelAxe', 'DiamondAxe']
 
 //#region DRAW PAGE ELEMENTS
 
@@ -584,5 +584,5 @@ function lumberjackHireTemplate() {
 
 
 
-// window.setInterval(idleCollection, 1000)
+window.setInterval(idleCollection, 1000)
 draw()
