@@ -2,7 +2,9 @@
   #upgradesHiresSells {position: relative; bottom: auto;}
   #footer {bottom: auto;}
 }
-
+ @media screen and (min-width: 769px){
+   body {  overflow-y: hidden}
+ }
 
 
 
@@ -26,6 +28,8 @@ body {
   background-size: cover;
   font-family: 'Gloria Hallelujah', cursive;
   margin: 0 auto;
+  overflow-x: hidden;
+
 }
 
 footer{
