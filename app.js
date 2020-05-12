@@ -31,11 +31,14 @@ let idle = {
   wood: 0
 }
 
-let totalWorkers = 0
-let timerCounter = 0
-let maxFood = 0
-let maxOre = 0
-let maxWood = 0
+
+let counters = {
+  totalWorkers: 0,
+  timerCounter: 0,
+  maxFood: 0,
+  maxOre: 0,
+  maxWood: 0
+}
 
 
 
@@ -43,6 +46,35 @@ let upgradeArr = ['Stone', 'Bronze', 'Iron', 'Steel', 'Diamond']
 let upgradeArrArrow = ['StoneArrow', 'BronzeArrow', 'IronArrow', 'SteelArrow', 'DiamondArrow']
 let upgradeArrPick = ['StonePick', 'BronzePick', 'IronPick', 'SteelPick', 'DiamondPick']
 let upgradeArrAxe = ['StoneAxe', 'BronzeAxe', 'IronAxe', 'SteelAxe', 'DiamondAxe']
+
+function save() {
+  window.localStorage.setItem("user", JSON.stringify(user))
+  window.localStorage.setItem("upgradeCounter", JSON.stringify(upgradeCounter))
+  window.localStorage.setItem("idle", JSON.stringify(idle))
+  window.localStorage.setItem("counters", JSON.stringify(counters))
+}
+
+function load() {
+  let savedUser = JSON.parse(window.localStorage.getItem("user"))
+  if (savedUser) {
+    user = savedUser
+  }
+  let savedUpgrade = JSON.parse(window.localStorage.getItem("upgradeCounter"))
+  if (savedUpgrade) {
+    upgradeCounter = savedUpgrade
+  }
+  let savedIdle = JSON.parse(window.localStorage.getItem("idle"))
+  if (savedIdle) {
+    idle = savedIdle
+  }
+  let savedCounters = JSON.parse(window.localStorage.getItem("counters"))
+  if (savedCounters) {
+    counters = savedCounters
+  }
+
+}
+
+
 
 //#region DRAW PAGE ELEMENTS
 
@@ -77,11 +109,11 @@ function drawUserInfo() {
 
   document.getElementById("woodPerClick").innerText = "Wood per click: " + (user.mods.wood + 1)
 
-  document.getElementById("workers").innerText = "Total Workers: " + totalWorkers
+  document.getElementById("workers").innerText = "Total Workers: " + counters.totalWorkers
 
-  document.getElementById("workerFood").innerText = (totalWorkers * 10).toString()
+  document.getElementById("workerFood").innerText = (counters.totalWorkers * 10).toString()
 
-  document.getElementById("workerGold").innerText = (totalWorkers * 20).toString()
+  document.getElementById("workerGold").innerText = (counters.totalWorkers * 20).toString()
 
   upgradeCostChecks()
   hireCostChecks()
@@ -366,7 +398,7 @@ function upgrade(resource, numGold, numOre, numWood) {
       upgradeCounter.click.food++
     }
     if (upgradeCounter.click.food >= upgradeArr.length) {
-      maxFood++
+      counters.maxFood++
     }
   } else if (resource == "ore") {
     if (currentOreRate == 0) {
@@ -383,7 +415,7 @@ function upgrade(resource, numGold, numOre, numWood) {
       upgradeCounter.click.ore++
     }
     if (upgradeCounter.click.ore >= upgradeArr.length) {
-      maxOre++
+      counters.maxOre++
     }
   } else if (resource == "wood") {
     if (currentWoodRate == 0) {
@@ -400,7 +432,7 @@ function upgrade(resource, numGold, numOre, numWood) {
       upgradeCounter.click.wood++
     }
     if (upgradeCounter.click.wood >= upgradeArr.length) {
-      maxWood++
+      counters.maxWood++
     }
   }
   draw()
@@ -417,48 +449,48 @@ function hire(resources, num) {
       idle.gold++
       user.gold -= num
       upgradeCounter.idle.gold++
-      totalWorkers++
+      counters.totalWorkers++
     } else {
       idle.gold += currentGoldRate
       user.gold -= num
       upgradeCounter.idle.gold++
-      totalWorkers++
+      counters.totalWorkers++
     }
   } else if (resources == "food") {
     if (currentFoodRate == 0) {
       idle.food++
       user.gold -= num
       upgradeCounter.idle.food++
-      totalWorkers++
+      counters.totalWorkers++
     } else {
       idle.food += currentFoodRate
       user.gold -= num
       upgradeCounter.idle.food++
-      totalWorkers++
+      counters.totalWorkers++
     }
   } else if (resources == "ore") {
     if (currentOreRate == 0) {
       idle.ore++
       user.gold -= num
       upgradeCounter.idle.ore++
-      totalWorkers++
+      counters.totalWorkers++
     } else {
       idle.ore += currentOreRate
       user.gold -= num
       upgradeCounter.idle.ore++
-      totalWorkers++
+      counters.totalWorkers++
     }
   } else if (resources == "wood") {
     if (currentWoodRate == 0) {
       idle.wood++
       user.gold -= num
       upgradeCounter.idle.wood++
-      totalWorkers++
+      counters.totalWorkers++
     } else {
       idle.wood += currentWoodRate
       user.gold -= num
       upgradeCounter.idle.wood++
-      totalWorkers++
+      counters.totalWorkers++
     }
   }
   draw()
@@ -484,10 +516,11 @@ function idleCollection() {
   user.food += idle.food
   user.ore += idle.ore
   user.wood += idle.wood
-  timerCounter++
-  if (timerCounter == 30) {
+  counters.timerCounter++
+  if (counters.timerCounter == 30) {
     workerUpkeep()
-    timerCounter = 0
+    counters.timerCounter = 0
+    save()
   }
   drawUserInfo()
 }
@@ -495,19 +528,19 @@ function idleCollection() {
 
 //Caculate the cost of upkeep for each idle resource gatherer
 function workerUpkeep() {
-  if (user.gold < totalWorkers * 20) {
+  if (user.gold < counters.totalWorkers * 20) {
     workerReset()
     user.gold = 0
     drawTemplatesAndFunctions()
   }
-  if (user.food < totalWorkers * 10) {
+  if (user.food < counters.totalWorkers * 10) {
     workerReset()
     user.food = 0
     drawTemplatesAndFunctions()
   }
-  if (user.gold >= totalWorkers * 20 && user.food >= totalWorkers * 10) {
-    user.gold -= (totalWorkers * 20)
-    user.food -= (totalWorkers * 10)
+  if (user.gold >= counters.totalWorkers * 20 && user.food >= counters.totalWorkers * 10) {
+    user.gold -= (counters.totalWorkers * 20)
+    user.food -= (counters.totalWorkers * 10)
   }
 }
 
@@ -517,7 +550,7 @@ function workerReset() {
   idle.food = 0
   idle.ore = 0
   idle.wood = 0
-  totalWorkers = 0
+  counters.totalWorkers = 0
 }
 
 //#region TEMPLATES
@@ -528,7 +561,7 @@ function foodUpgradeTemplate() {
   let elem = document.getElementById("foodUpgradeTemplate")
   elem.innerHTML = `<button id="foodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('food',${cost}, ${oreCost}, ${woodCost})"> <div> <img src="${upgradeArrArrow[upgradeCounter.click.food]}.png" alt="error loading image" class="userResourceImage"> Upgrade to ${upgradeArr[upgradeCounter.click.food]} Arrows. </div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
   if (upgradeCounter.click.food >= upgradeArr.length) {
-    elem.innerHTML = `<button id="foodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('food',${cost}, ${oreCost}, ${woodCost})"><div> <img src="DiamondArrow.png" alt="error loading image" class="userResourceImage">Upgrade Diamond Arrows +${maxFood}</div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
+    elem.innerHTML = `<button id="foodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('food',${cost}, ${oreCost}, ${woodCost})"><div> <img src="DiamondArrow.png" alt="error loading image" class="userResourceImage">Upgrade Diamond Arrows +${counters.maxFood}</div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
   }
 }
 
@@ -539,7 +572,7 @@ function oreUpgradeTemplate() {
   let elem = document.getElementById("oreUpgradeTemplate")
   elem.innerHTML = `<button id="oreUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('ore',${cost}, ${oreCost}, ${woodCost})"> <img src="${upgradeArrPick[upgradeCounter.click.ore]}.png" alt="error loading image" class="userResourceImage"> Upgrade to ${upgradeArr[upgradeCounter.click.ore]} Pick. </div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</button>`
   if (upgradeCounter.click.ore >= upgradeArr.length) {
-    elem.innerHTML = `<button id="oreUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('ore',${cost}, ${oreCost}, ${woodCost})"><div> <img src="DiamondPick.png" alt="error loading image" class="userResourceImage">Upgrade Diamond Pick +${maxOre}</div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
+    elem.innerHTML = `<button id="oreUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('ore',${cost}, ${oreCost}, ${woodCost})"><div> <img src="DiamondPick.png" alt="error loading image" class="userResourceImage">Upgrade Diamond Pick +${counters.maxOre}</div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
   }
 }
 
@@ -550,7 +583,7 @@ function woodUpgradeTemplate() {
   let elem = document.getElementById("woodUpgradeTemplate")
   elem.innerHTML = `<button id="woodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('wood',${cost}, ${oreCost}, ${woodCost})"> <img src="${upgradeArrAxe[upgradeCounter.click.wood]}.png" alt="error loading image" class="userResourceImage"> Upgrade to ${upgradeArr[upgradeCounter.click.wood]} Axe. </div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</button>`
   if (upgradeCounter.click.wood >= upgradeArr.length) {
-    elem.innerHTML = `<button id="woodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('wood',${cost}, ${oreCost}, ${woodCost})"><div> <img src="DiamondAxe.png" alt="error loading image" class="userResourceImage">Upgrade Diamond Axe +${maxWood}</div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
+    elem.innerHTML = `<button id="woodUpgrade" class="btn btn-primary text-shadow-black" onclick="upgrade('wood',${cost}, ${oreCost}, ${woodCost})"><div> <img src="DiamondAxe.png" alt="error loading image" class="userResourceImage">Upgrade Diamond Axe +${counters.maxWood}</div><div>  Gold: ${cost} Ore ${oreCost} Wood ${woodCost}</div></button>`
   }
 }
 
@@ -583,6 +616,6 @@ function lumberjackHireTemplate() {
 
 
 
-
+load()
 window.setInterval(idleCollection, 1000)
 draw()
